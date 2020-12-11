@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Table } from 'reactstrap';
 
 
 export class Home extends Component {
@@ -14,18 +15,48 @@ export class Home extends Component {
     this.populateSourceData();
   }
 
-  render () {
+  static renderSourcesTable (sources) {
+    return (
+    <Table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        {sources.map(forecast =>
+          <tr key={forecast.date}>
+              <td>{forecast.date}</td>
+              <td>{forecast.temperatureC}</td>
+              <td>{forecast.temperatureF}</td>
+              <td>{forecast.summary}</td>
+            </tr>
+         )}
+      </tbody>
+    </Table>
+    );
+  }
+
+  render() {
+    let contents = this.state.loading
+      ? <p><em>Loading...</em></p>
+      : Home.renderSourcesTable(this.state.sources);
+
     return (
       <div>
-            <h1>hello</h1>
+        <h1 id="tabelLabel" >Edit sources</h1>
+        {contents}
       </div>
     );
   }
 
-  async populateSourceData() {
+  populateSourceData() {
     axios.get('weatherforecast')
       .then(res => {
-          this.setState({ sources: data, loading: false });
+          this.setState({ sources: res.data, loading: false });
       })
       .catch(err => {
         console.log(err);
