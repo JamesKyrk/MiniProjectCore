@@ -27,12 +27,12 @@ export class Home extends Component {
         </tr>
       </thead>
       <tbody>
-        {sources.map(forecast =>
-          <tr key={forecast.date}>
-              <td>{forecast.date}</td>
-              <td>{forecast.temperatureC}</td>
-              <td>{forecast.temperatureF}</td>
-              <td>{forecast.summary}</td>
+        {sources.map(source =>
+          <tr key={source.id}>
+              <td>{source.source_Code}</td>
+              <td>{source.source_Name}</td>
+              <td>{source.source_Group}</td>
+              <td>{source.id}</td>
             </tr>
          )}
       </tbody>
@@ -54,13 +54,13 @@ export class Home extends Component {
   }
 
   populateSourceData() {
-    axios.get('weatherforecast')
+    axios.get('api/sources')
       .then(res => {
           this.setState({ sources: res.data, loading: false });
       })
       .catch(err => {
         console.log(err);
       })
-    // this.setState({ forecasts: data, loading: false });
+    // this.setState({ sources: data, loading: false });
   }
 }
