@@ -2,7 +2,7 @@
 
 namespace MiniProjectCore.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,8 @@ namespace MiniProjectCore.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Source_Name = table.Column<string>(type: "TEXT", nullable: true),
                     Source_Code = table.Column<string>(type: "TEXT", nullable: true),
-                    Source_Id = table.Column<string>(type: "TEXT", nullable: true)
+                    Source_Id = table.Column<string>(type: "TEXT", nullable: true),
+                    Source_Group = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

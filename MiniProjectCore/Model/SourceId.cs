@@ -11,5 +11,6 @@ namespace MiniProjectCore.Model
         public string Source_Name { get; set; }
         public string Source_Code { get; set; }
         public string Source_Id { get; set; }
+        public string Source_Group { get; set; }
     }
 }

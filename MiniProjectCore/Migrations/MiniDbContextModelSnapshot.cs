@@ -59,6 +59,9 @@ namespace MiniProjectCore.Migrations
                     b.Property<string>("Source_Code")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Source_Group")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Source_Id")
                         .HasColumnType("TEXT");
 

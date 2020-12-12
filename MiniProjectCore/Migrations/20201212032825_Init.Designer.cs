@@ -8,8 +8,8 @@ using MiniProjectCore.Data;
 namespace MiniProjectCore.Migrations
 {
     [DbContext(typeof(MiniDbContext))]
-    [Migration("20201212011454_init")]
-    partial class init
+    [Migration("20201212032825_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -59,6 +59,9 @@ namespace MiniProjectCore.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Source_Code")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Source_Group")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Source_Id")
