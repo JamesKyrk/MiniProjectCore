@@ -8,10 +8,10 @@ namespace MiniProjectCore.Services
 {
     public interface ISourceService
     {
-        Source CreateSourceId(Source sourceOptions);
-        Source GetSourceId(int id);
-        List<Source> GetAllSourceIds();
-        Source UpdateSourceId(Source sourceOptions);
-        bool DeleteSourceId(int id);
+        Source CreateSource(Source sourceOptions);
+        Source GetSource(int id);
+        List<Source> GetAllSources();
+        Source UpdateSource(int id, Source sourceOptions);
+        bool DeleteSource(int id);
     }
 }

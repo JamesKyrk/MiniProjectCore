@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MiniProjectCore.Services
 {
-    public interface ISourceIdInterface
+    public interface ISourceIdService
     {
         SourceId CreateSourceId(SourceId sourceIdOptions);
         SourceId GetSourceId(int id);
         List<SourceId> GetAllSourceIds();
-        SourceId UpdateSourceId(SourceId sourceIdOptions);
+        SourceId UpdateSourceId(int id, SourceId sourceIdOptions);
         bool DeleteSourceId(int id);
     }
 }

@@ -8,7 +8,7 @@ using MiniProjectCore.Data;
 namespace MiniProjectCore.Migrations
 {
     [DbContext(typeof(MiniDbContext))]
-    [Migration("20201212004316_init")]
+    [Migration("20201212011454_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

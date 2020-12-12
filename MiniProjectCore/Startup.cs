@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MiniProjectCore.Data;
+using MiniProjectCore.Services;
 
 namespace MiniProjectCore
 {
@@ -19,8 +22,13 @@ namespace MiniProjectCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<MiniDbContext>(options => options.UseSqlite("Data Source=Data.db"));
+            //protected override void OnConfiguring(DbContextOptionsBuilder options)
+            //    => options.UseSqlite("Data Source=Data.db");
+            services.AddScoped<ISourceService, SourceService>();
+            services.AddScoped<ISourceIdService, SourceIdService>();
             services.AddControllersWithViews();
+            
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

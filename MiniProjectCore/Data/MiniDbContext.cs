@@ -12,7 +12,12 @@ namespace MiniProjectCore.Data
         public DbSet<SourceId> SourceIds { get; set; }
         public DbSet<Source> Sources { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("Data Source=Data.db");
+        //protected override void OnConfiguring(DbContextOptionsBuilder options)
+        //    => options.UseSqlite("Data Source=Data.db");
+        public MiniDbContext(DbContextOptions<MiniDbContext> options)
+            : base(options)
+        { }
+        public MiniDbContext()
+        { }
     }
 }
