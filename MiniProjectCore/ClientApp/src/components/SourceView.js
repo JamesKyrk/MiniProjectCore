@@ -8,7 +8,7 @@ export class SourceView extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { sources: [], loading: true, sourceGroups:['TA', 'OTA', 'WEB-IND', 'TO'], selectedSourceGroup: ''}
+    this.state = { sources: [], loading: true, sourceGroups:['TA', 'OTA', 'WEB-IND', 'TO'], selectedSourceGroup: '', contents: ''}
   }
 
   handleChange = (e) => {
@@ -18,39 +18,13 @@ export class SourceView extends Component {
     this.populatesourceData();
   }
 
-  static rendersourcesTable (sources) {
-    //return (
-    // <Table>
-    //   <thead>
-    //     <tr>
-    //       <th>Source ID</th>
-    //       <th>Source Code</th>
-    //       <th>Source Name</th>
-    //       <th>Source group</th>
-    //       <th>Agent_Group</th>
-    //       <th>Actions</th>
-    //     </tr>
-    //   </thead>
-    //   <tbody>
-    //     {sources.map(source =>
-    //       <tr key={source.id}>
-    //           <td>{source.source_Id}</td>
-    //           <td>{source.source_Code}</td>
-    //           <td>{source.source_Name}</td>
-    //           <td>{source.source_Group}</td>
-    //           <td>{source.agent_Group}</td>
-    //           <td>Edit</td>
-    //       </tr>
-    //      )}
-    //   </tbody>
-    // </Table>
-    //);
+  search = () => {
+    
   }
+
 
   render() {
     return (
-
-
       <div id="container-card" className="card py-3 px-3">
           <h3 id="tabelLabel" >Source Management</h3>
           <form>
@@ -96,6 +70,9 @@ export class SourceView extends Component {
                   <button className="col-2 btn btn-danger mr-auto" onClick={this.props.toggle}>Close</button>
               </div>
           </form>
+          <div>
+            {this.state.contents}
+          </div>
       </div>
     );
   }
