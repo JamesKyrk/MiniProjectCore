@@ -54,6 +54,7 @@ export class AddSourceCodeModal extends Component {
                                 <label className="col-lg-2 col-form-label pr-0" for="sourceCodeSelect">Source Code:</label>
                                 <div className="col-lg-4 pl-0">
                                     <select className="form-control" id="sourceCodeSelect" onChange={this.handleChange}>
+                                        <option value=''></option>
                                         {(this.state.sourceCodes.map((sourceCode, index) => 
                                         <option key={index} value={sourceCode}>{sourceCode}</option>))
                                         }

@@ -28,7 +28,7 @@ namespace MiniProjectCore.Controllers
             return await _context.Sources.ToListAsync();
         }
 
-        [HttpGet("search")]
+        [HttpPost("search")]
         public async Task<ActionResult<IEnumerable<Source>>> SearchSources(Source sourceOptions)
         {
             return await _context.Sources

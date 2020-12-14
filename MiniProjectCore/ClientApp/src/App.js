@@ -21,7 +21,6 @@ export default class App extends Component {
     this.setState({
       modal: !this.state.modal
     });
-    console.log(this.state.modal);
   };
 
   setSourceId = (sourceId) => {
@@ -32,6 +31,15 @@ export default class App extends Component {
     console.log(sourceId);
   }
 
+  setSource = (source) => {
+    this.setState({
+      currentSource: source,
+      modal: !this.state.modal
+    })
+    console.log(source);
+  }
+
+
 
   render () {
     return (
@@ -41,11 +49,8 @@ export default class App extends Component {
           //component={Home} 
           render={(props) => <SourceIdView {...props} currentSourceId={this.state.currentSourceId} setSourceId={this.setSourceId} toggle={this.toggle} modal={this.state.modal}/>}/>
         <Route 
-          path='/counter'
-          render={(props) => <SourceView {...props} currentSourceId={this.state.currentSourceId} setSourceId={this.setSourceId} toggle={this.toggle} modal={this.state.modal}/>}/>
-
-
-        
+          path='/sources'
+          render={(props) => <SourceView {...props} currentSource={this.state.currentSource} setSource={this.setSource} toggle={this.toggle} modal={this.state.modal}/>}/>       
       </Layout>
     );
   }

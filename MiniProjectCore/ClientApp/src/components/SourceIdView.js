@@ -9,41 +9,10 @@ export class SourceIdView extends Component {
   constructor(props) {
     super(props);
     this.state = { sourceIds: [], loading: true};
-    this.renderSourceIdsTable = this.renderSourceIdsTable.bind(this);
   }
-
-  // toggle(){
-  //   this.setState({
-  //     modal: !this.state.modal
-  //   })
-  //}
 
   componentDidMount() {
     this.populateSourceIdData();
-  }
-
-  renderSourceIdsTable (sourceIds) {
-    return (
-      <div>
-
-    {/* <Modal
-          isOpen={this.props.route.modal}
-          toggle={this.props.route.toggle.bind(this)}
-          className={this.props.className}
-          >
-          <ModalHeader
-          className="modHeader"
-          toggle={this.props.toggle.bind(this)}
-        >
-          Events of the day
-        </ModalHeader>
-        <ModalBody>
-          <h1>hello</h1>
-        </ModalBody>
-    </Modal> */}
-
-    </div>
-    );
   }
 
   render() {
@@ -54,9 +23,10 @@ export class SourceIdView extends Component {
       <table className="table table-bordered text-center">
       <thead>
         <tr>
-          <th><b>Source_Id</b></th>
-          <th><b>Source_Name</b></th>
-          <th><b>Actions</b></th>
+          <th>Source_Id</th>
+          <th>Source_Name</th>
+          <th>Actions</th>
+          <th>Source Code</th>
         </tr>
       </thead>
       <tbody>
@@ -65,6 +35,7 @@ export class SourceIdView extends Component {
               <td>{sourceId.source_Id}</td>
               <td>{sourceId.source_Name}</td>
               <td><Button color="danger" onClick={() => this.props.setSourceId(sourceId)}>Edit</Button></td>
+              <td>{sourceId.source_Code}</td>
             </tr>
          )}
          
