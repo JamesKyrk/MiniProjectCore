@@ -8,6 +8,7 @@ namespace MiniProjectCore.Model
     public class Source
     {
         public int Id { get; set; }
+        public string Source_Id { get; set; }
         public string Source_Code { get; set; }
         public string Source_Name { get; set; }
         public string Agent_Group { get; set; }

@@ -28,6 +28,18 @@ namespace MiniProjectCore.Controllers
             return await _context.Sources.ToListAsync();
         }
 
+        [HttpGet("search")]
+        public async Task<ActionResult<IEnumerable<Source>>> SearchSources(Source sourceOptions)
+        {
+            return await _context.Sources
+                            .Where(source => source.Source_Id == sourceOptions.Source_Id
+                            || source.Source_Name == sourceOptions.Source_Name
+                            || source.Source_Code == sourceOptions.Source_Code
+                            || source.Source_Group == sourceOptions.Source_Group
+                            || source.Agent_Group == sourceOptions.Agent_Group
+                            ).ToListAsync();
+        }
+
         // GET: api/Sources/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Source>> GetSource(int id)
